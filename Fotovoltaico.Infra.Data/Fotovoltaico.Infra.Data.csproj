@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="ExternalIntegrations\" />
+    <Folder Include="Repositories\" />
+    <Folder Include="UnitOfWork\" />
+    <Folder Include="EntityConfig\" />
+    <Folder Include="Context\" />
+  </ItemGroup>
+
+</Project>
