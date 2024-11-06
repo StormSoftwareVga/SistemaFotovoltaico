@@ -1,0 +1,17 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Fotovoltaico/Dockerfile
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: 303304
+      MYSQL_DATABASE: mysolar
+    ports:
+      - "3307:3306"
