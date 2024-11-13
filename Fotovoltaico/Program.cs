@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Fotovoltaico.Infra.Data.Context;
+using Fotovoltaico.Domain.Mappers;
 using AspNetCore.Scalar;
 
 
@@ -9,6 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddAutoMapper(typeof(AutoMapperSetup));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

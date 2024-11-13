@@ -7,16 +7,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="ExternalIntegrations\" />
-    <Folder Include="Repositories\" />
-    <Folder Include="UnitOfWork\" />
-    <Folder Include="EntityConfig\" />
+    <Compile Remove="ExternalIntegrations\**" />
+    <EmbeddedResource Remove="ExternalIntegrations\**" />
+    <None Remove="ExternalIntegrations\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fotovoltaico.Domain\Fotovoltaico.Domain.csproj" />
   </ItemGroup>
 
 </Project>

@@ -10,26 +10,33 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Config\**" />
+    <Compile Remove="ExternalIntegrations\**" />
+    <Compile Remove="Includes\**" />
+    <Compile Remove="Integrados\**" />
+    <Compile Remove="Unitarios\**" />
+    <EmbeddedResource Remove="Config\**" />
+    <EmbeddedResource Remove="ExternalIntegrations\**" />
+    <EmbeddedResource Remove="Includes\**" />
+    <EmbeddedResource Remove="Integrados\**" />
+    <EmbeddedResource Remove="Unitarios\**" />
+    <None Remove="Config\**" />
+    <None Remove="ExternalIntegrations\**" />
+    <None Remove="Includes\**" />
+    <None Remove="Integrados\**" />
+    <None Remove="Unitarios\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
     <PackageReference Include="NUnit" Version="3.14.0" />
     <PackageReference Include="NUnit.Analyzers" Version="3.9.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="4.5.0" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Includes\" />
-    <Folder Include="Integrados\" />
-    <Folder Include="Unitarios\" />
-    <Folder Include="ExternalIntegrations\" />
-    <Folder Include="Config\" />
   </ItemGroup>
 
 </Project>

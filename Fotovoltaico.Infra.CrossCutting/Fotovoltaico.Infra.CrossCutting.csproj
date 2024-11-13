@@ -7,19 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logs\" />
-    <Folder Include="Enuns\" />
-    <Folder Include="Utilities\Error\" />
-    <Folder Include="Utilities\Extensions\" />
-    <Folder Include="Utilities\Result\" />
-    <Folder Include="Utilities\Converter\" />
-    <Folder Include="Utilities\Constants\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+    <Compile Remove="Enuns\**" />
+    <Compile Remove="Logs\**" />
+    <Compile Remove="Utilities\**" />
+    <EmbeddedResource Remove="Enuns\**" />
+    <EmbeddedResource Remove="Logs\**" />
+    <EmbeddedResource Remove="Utilities\**" />
+    <None Remove="Enuns\**" />
+    <None Remove="Logs\**" />
+    <None Remove="Utilities\**" />
   </ItemGroup>
 
 </Project>

@@ -12,12 +12,12 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCore.Scalar" Version="1.1.7" />
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="MySql.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Fotovoltaico.Domain\Fotovoltaico.Domain.csproj" />
     <ProjectReference Include="..\Fotovoltaico.Infra.Data\Fotovoltaico.Infra.Data.csproj" />
   </ItemGroup>
 

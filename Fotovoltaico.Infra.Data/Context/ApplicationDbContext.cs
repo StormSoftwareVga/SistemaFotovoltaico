@@ -1,9 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Fotovoltaico.Domain.Entities.Domain;
+using Fotovoltaico.Infra.Data.EntityConfig;
+using Fotovoltaico.Infra.Data.Extensions;
+using Microsoft.EntityFrameworkCore;
 
 namespace Fotovoltaico.Infra.Data.Context
 {
@@ -12,6 +10,22 @@ namespace Fotovoltaico.Infra.Data.Context
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options): base(options)
         {
+        }
+
+        #region DB SETs
+
+        public DbSet<User> Users => Set<User>();
+
+        #endregion
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new UserConfig());
+
+            modelBuilder.ApplyGlobalConfigurations();
+            modelBuilder.SeedData();
+
+            base.OnModelCreating(modelBuilder);
         }
 
     }
