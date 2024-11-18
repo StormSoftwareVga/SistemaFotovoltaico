@@ -50,12 +50,12 @@ namespace Fotovoltaico.Api.Controllers
             return Ok(this.userService.Put(userDto));
         }
 
-        [HttpDelete]
-        public IActionResult Delete()
+        [HttpDelete("{id}")]
+        public IActionResult Delete(string id)
         {
-            var _idUsuario = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
+            //var _idUsuario = TokenService.GetValueFromClaim(HttpContext.User.Identity, ClaimTypes.NameIdentifier);
 
-            return Ok(this.userService.Delete(_idUsuario));
+            return Ok(this.userService.Delete(id));
         }
     }
 }

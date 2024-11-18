@@ -29,12 +29,12 @@ namespace Fotovoltaico.Domain.Services
             return tokenHandler.WriteToken(token);
         }
 
-        public static string GetValueFromClaim(IIdentity identity, string field)
-        {
-            var claims = identity as ClaimsIdentity;
+        //public static string GetValueFromClaim(IIdentity identity, string field)
+        //{
+        //    var claims = identity as ClaimsIdentity;
 
-            return claims.FindFirst(field).Value;
-        }
+        //    return claims.FindFirst(field).Value;
+        //}
 
     }
 }
