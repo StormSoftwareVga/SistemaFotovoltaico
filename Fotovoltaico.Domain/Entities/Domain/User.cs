@@ -7,11 +7,10 @@ namespace Fotovoltaico.Domain.Entities.Domain
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-
-        //public string Status { get; set; }
-        //public byte TentativasLogin { get; set; }
-        //public DateTime? LastAcessDate { get; set; }
-        //public string RecoveryToken { get; set; }
-        //public string ProfileImage { get; set; }
+        public string VerificationCode { get; set; }
+        public bool IsVerified { get; set; } = false;
+        public string? RecoveryCode { get; set; }
+        public DateTime? RecoveryCodeGeneratedAt { get; set; }
+        public bool PasswordReset { get; set; } = false; 
     }
 }

@@ -29,14 +29,17 @@ namespace Fotovoltaico.Infra.Data.Migrations
                         .HasColumnType("char(36)");
 
                     b.Property<DateTime?>("ChangeDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
 
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<DateTime>("InclusionDate")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("datetime");
+
+                    b.Property<bool>("IsVerified")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -44,6 +47,19 @@ namespace Fotovoltaico.Infra.Data.Migrations
                         .HasColumnType("varchar(100)");
 
                     b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<bool>("PasswordReset")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("RecoveryCode")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("RecoveryCodeGeneratedAt")
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("VerificationCode")
                         .IsRequired()
                         .HasColumnType("longtext");
 

@@ -2,12 +2,13 @@
 
 namespace Fotovoltaico.Domain.Entities.DataTransferObjects.User
 {
-    public class UserAuthenticateRequestDto
+    public class VerifyCodeRequestDto
     {
         [Required]
         [EmailAddress(ErrorMessage = "E-mail inválido.")]
         public string Email { get; set; }
-        [Required]
-        public string Password { get; set; }
+
+        [Required(ErrorMessage = "O código de verificação é obrigatório.")]
+        public string VerificationCode { get; set; }
     }
 }

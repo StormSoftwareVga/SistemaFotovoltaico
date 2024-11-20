@@ -10,5 +10,8 @@ namespace Fotovoltaico.Domain.Interfaces.Services
         bool Put(UserDto userDto);
         bool Delete(string id);
         UserAuthenticateResponseViewModel Authenticate(UserAuthenticateRequestDto user);
+        bool VerifyUserAccount(string email, string verificationCode);
+        bool RecoverPassword(string email);
+        bool ResetPassword(string email, string recoveryCode, string newPassword);
     }
 }

@@ -25,8 +25,15 @@ namespace Fotovoltaico.Infra.Data.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Password = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    InclusionDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    ChangeDate = table.Column<DateTime>(type: "datetime(6)", nullable: true)
+                    VerificationCode = table.Column<string>(type: "longtext", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsVerified = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    RecoveryCode = table.Column<string>(type: "longtext", nullable: true)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    RecoveryCodeGeneratedAt = table.Column<DateTime>(type: "datetime", nullable: true),
+                    PasswordReset = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    InclusionDate = table.Column<DateTime>(type: "datetime", nullable: false),
+                    ChangeDate = table.Column<DateTime>(type: "datetime", nullable: true)
                 },
                 constraints: table =>
                 {

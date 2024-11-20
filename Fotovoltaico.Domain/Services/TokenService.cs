@@ -3,7 +3,6 @@ using Fotovoltaico.Domain.Entities.Domain;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Security.Principal;
 using System.Text;
 
 namespace Fotovoltaico.Domain.Services
@@ -28,13 +27,5 @@ namespace Fotovoltaico.Domain.Services
             var token = tokenHandler.CreateToken(tokenDescriptor);
             return tokenHandler.WriteToken(token);
         }
-
-        //public static string GetValueFromClaim(IIdentity identity, string field)
-        //{
-        //    var claims = identity as ClaimsIdentity;
-
-        //    return claims.FindFirst(field).Value;
-        //}
-
     }
 }
