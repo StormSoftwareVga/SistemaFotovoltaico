@@ -26,6 +26,16 @@ namespace Fotovoltaico.Api
             NativeInjector.RegisterServices(services);
 
             services.AddAutoMapper(typeof(AutoMapperSetup));
+
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Fotovoltaico API",
+                    Version = "v1",
+                    Description = "API para Gerenciamento de Usuários e Energia Fotovoltaica"
+                });
+            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -39,6 +49,7 @@ namespace Fotovoltaico.Api
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSwagger();
 
             app.UseScalar(options =>
             {
