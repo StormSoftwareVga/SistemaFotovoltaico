@@ -13,12 +13,16 @@ namespace Fotovoltaico.Infra.CrossCutting.IoC
             #region Services
 
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IPersonService, PersonService>();
+            services.AddScoped<IPersonAddressService, PersonAddressService>();
 
             #endregion
 
             #region Repositories
 
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IPersonRepository, PersonRepository>();
+            services.AddScoped<IPersonAddressRepository, PersonAddressRepository>();
 
             #endregion
         }

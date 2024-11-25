@@ -114,7 +114,6 @@ namespace Fotovoltaico.Domain.Services
 
             userRepository.Update(user);
 
-            // Enviar código de recuperação por e-mail
             SendRecoveryCode(user.Email, recoveryCode);
 
             return true;

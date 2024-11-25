@@ -15,6 +15,8 @@ namespace Fotovoltaico.Infra.Data.Context
         #region DB SETs
 
         public DbSet<User> Users => Set<User>();
+        public DbSet<Person> People => Set<Person>();
+        public DbSet<PersonAddress> PersonAddresses => Set<PersonAddress>();
 
         #endregion
 
