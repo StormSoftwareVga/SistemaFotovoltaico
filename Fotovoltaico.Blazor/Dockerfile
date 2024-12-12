@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copia os arquivos de projeto e restaura as dependências
+# Copiar os arquivos de projeto e restaurar as dependências
 COPY *.sln .
 COPY Fotovoltaico/*.csproj ./Fotovoltaico/
 COPY Fotovoltaico.Domain/*.csproj ./Fotovoltaico.Domain/
@@ -12,15 +12,24 @@ COPY Fotovoltaico.Infra.Data/*.csproj ./Fotovoltaico.Infra.Data/
 COPY Fotovoltaico.Job/*.csproj ./Fotovoltaico.Job/
 COPY Fotovoltaico.Tests/*.csproj ./Fotovoltaico.Tests/
 COPY Fotovoltaico.Blazor/*.csproj ./Fotovoltaico.Blazor/
+
+# Restaurar as dependências
 RUN dotnet restore
 
-# Copia o restante dos arquivos e compila a aplicação
+# Copiar o restante dos arquivos e compilar o Blazor
 COPY . .
-WORKDIR /app/Fotovoltaico
+WORKDIR /app/Fotovoltaico.Blazor
 RUN dotnet publish -c Release -o /app/out
 
 # Estágio de runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
+
+# Copiar a build do Blazor
 COPY --from=build /app/out ./
-ENTRYPOINT ["dotnet", "Fotovoltaico.Api.dll"]
+
+# Expor a porta do Blazor
+EXPOSE 5000
+
+# Comando para rodar o Blazor
+ENTRYPOINT ["dotnet", "Fotovoltaico.Blazor.dll"]

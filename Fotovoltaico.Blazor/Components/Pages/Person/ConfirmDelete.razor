@@ -1,0 +1,35 @@
+﻿@page "/person/delete/{Id:guid}"
+@inject NavigationManager NavigationManager
+@inject HttpClient Http
+
+<h3>Confirmar Exclusão</h3>
+
+<p>Tem certeza de que deseja excluir a pessoa com ID @Id?</p>
+
+<button @onclick="DeletePerson" class="btn btn-danger">Confirmar Excluir</button>
+<a href="/person/" class="btn btn-secondary">Cancelar</a>
+
+@code {
+    [Parameter] public Guid Id { get; set; }
+
+    private async Task DeletePerson()
+    {
+        try
+        {
+            // Exclui a pessoa
+            await Http.DeleteAsync($"api/person/{Id}");
+            // Redireciona para a lista de pessoas
+            NavigationManager.NavigateTo("/person");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao excluir a pessoa: {ex.Message}");
+        }
+    }
+
+    private void CancelDelete()
+    {
+        // Redireciona para a lista de pessoas sem excluir
+        NavigationManager.NavigateTo("/person");
+    }
+}

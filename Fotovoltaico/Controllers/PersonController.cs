@@ -27,8 +27,8 @@ namespace Fotovoltaico.Api.Controllers
             return Ok(this.personService.GetById(id));
         }
 
-        [HttpPost, AllowAnonymous]
-        public IActionResult Post(PersonDto personDto)
+        [HttpPost, AllowAnonymous, IgnoreAntiforgeryToken]
+        public IActionResult Post([FromBody] PersonDto personDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
@@ -36,8 +36,8 @@ namespace Fotovoltaico.Api.Controllers
             return Ok(this.personService.Post(personDto));
         }
 
-        [HttpPut]
-        public IActionResult Put(PersonDto personDto)
+        [HttpPut,IgnoreAntiforgeryToken]
+        public IActionResult Put([FromBody] PersonDto personDto)
         {
             return Ok(this.personService.Put(personDto));
         }

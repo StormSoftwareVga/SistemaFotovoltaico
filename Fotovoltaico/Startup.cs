@@ -3,6 +3,7 @@ using Fotovoltaico.Domain.Mappers;
 using Fotovoltaico.Infra.CrossCutting.IoC;
 using Fotovoltaico.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 namespace Fotovoltaico.Api
 {
@@ -36,6 +37,21 @@ namespace Fotovoltaico.Api
                     Description = "API para Gerenciamento de Usuários e Energia Fotovoltaica"
                 });
             });
+
+            services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllOrigins", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                });
+            });
         }
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
@@ -50,7 +66,6 @@ namespace Fotovoltaico.Api
                 app.UseHsts();
             }
             app.UseSwagger();
-
             app.UseScalar(options =>
             {
                 options.UseTheme(Theme.Default);
@@ -62,8 +77,10 @@ namespace Fotovoltaico.Api
 
             app.UseRouting();
 
-            app.UseAuthentication();
-            app.UseAuthorization();
+            //app.UseAuthentication();
+            //app.UseAuthorization();
+
+            app.UseCors("AllowAllOrigins");
 
             app.UseEndpoints(endpoints =>
             {

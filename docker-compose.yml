@@ -16,3 +16,14 @@ services:
       - "5000:8080"
     depends_on:
       - db
+
+  blazor:
+    build:
+      context: .
+      dockerfile: Fotovoltaico.Blazor/Dockerfile
+    ports:
+      - "5001:5000"
+    environment:
+        ASPNETCORE_URLS: "http://+:5000"
+    depends_on:
+      - api
