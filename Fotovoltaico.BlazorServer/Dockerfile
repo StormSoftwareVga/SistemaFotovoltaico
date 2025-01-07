@@ -12,14 +12,13 @@ COPY Fotovoltaico.Infra.Data/*.csproj ./Fotovoltaico.Infra.Data/
 COPY Fotovoltaico.Job/*.csproj ./Fotovoltaico.Job/
 COPY Fotovoltaico.Tests/*.csproj ./Fotovoltaico.Tests/
 COPY Fotovoltaico.BlazorServer/*.csproj ./Fotovoltaico.BlazorServer/
-COPY Fotovoltaico.Blazor/*.csproj ./Fotovoltaico.Blazor/
 
 # Restaurar as dependências
 RUN dotnet restore
 
 # Copiar o restante dos arquivos e compilar o Blazor
 COPY . .
-WORKDIR /app/Fotovoltaico.Blazor
+WORKDIR /app/Fotovoltaico.BlazorServer
 RUN dotnet publish -c Release -o /app/out
 
 # Estágio de runtime
@@ -33,4 +32,4 @@ COPY --from=build /app/out ./
 EXPOSE 5000
 
 # Comando para rodar o Blazor
-ENTRYPOINT ["dotnet", "Fotovoltaico.Blazor.dll"]
+ENTRYPOINT ["dotnet", "Fotovoltaico.BlazorServer.dll"]

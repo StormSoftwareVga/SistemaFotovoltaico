@@ -11,7 +11,7 @@ COPY Fotovoltaico.Infra.CrossCutting.IoC/*.csproj ./Fotovoltaico.Infra.CrossCutt
 COPY Fotovoltaico.Infra.Data/*.csproj ./Fotovoltaico.Infra.Data/
 COPY Fotovoltaico.Job/*.csproj ./Fotovoltaico.Job/
 COPY Fotovoltaico.Tests/*.csproj ./Fotovoltaico.Tests/
-COPY Fotovoltaico.Blazor/*.csproj ./Fotovoltaico.Blazor/
+COPY Fotovoltaico.BlazorServer/*.csproj ./Fotovoltaico.BlazorServer/
 RUN dotnet restore
 
 # Copia o restante dos arquivos e compila a aplicação
