@@ -21,8 +21,8 @@
     <PropertyColumn Property="person => person.Email" />
     <PropertyColumn Property="person => person.CompanyName" />
     <PropertyColumn Property="person => person.Phone" />
-    <PropertyColumn Property="person => person.InclusionDate" />
-    <PropertyColumn Property="person => person.ChangeDate" />
+    @* <PropertyColumn Property="person => person.InclusionDate" /> *@
+    @* <PropertyColumn Property="person => person.ChangeDate" /> *@
 
     <TemplateColumn Context="person">
         <a href="@($"people/edit?id={person.Id}")">Edit</a> |
