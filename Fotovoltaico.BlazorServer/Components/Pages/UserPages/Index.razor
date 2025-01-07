@@ -1,0 +1,45 @@
+﻿@page "/users"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Fotovoltaico.Domain.Entities.Domain
+@using Fotovoltaico.Infra.Data.Context
+@implements IAsyncDisposable
+@inject IDbContextFactory<Fotovoltaico.Infra.Data.Context.ApplicationDbContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="users/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.Users">
+    <PropertyColumn Property="user => user.Name" />
+    <PropertyColumn Property="user => user.Email" />
+    <PropertyColumn Property="user => user.Password" />
+    <PropertyColumn Property="user => user.VerificationCode" />
+    <PropertyColumn Property="user => user.IsVerified" />
+    <PropertyColumn Property="user => user.RecoveryCode" />
+    <PropertyColumn Property="user => user.RecoveryCodeGeneratedAt" />
+    <PropertyColumn Property="user => user.PasswordReset" />
+    @* <PropertyColumn Property="user => user.InclusionDate" /> *@
+    @* <PropertyColumn Property="user => user.ChangeDate" /> *@
+
+    <TemplateColumn Context="user">
+        <a href="@($"users/edit?id={user.Id}")">Edit</a> |
+        <a href="@($"users/details?id={user.Id}")">Details</a> |
+        <a href="@($"users/delete?id={user.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private ApplicationDbContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}

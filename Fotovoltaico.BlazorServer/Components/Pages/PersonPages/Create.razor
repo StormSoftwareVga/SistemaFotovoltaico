@@ -45,16 +45,16 @@
                 <InputText id="phone" @bind-Value="Person.Phone" class="form-control" /> 
                 <ValidationMessage For="() => Person.Phone" class="text-danger" /> 
             </div>        
-            <div class="mb-3">
-                <label for="inclusiondate" class="form-label">InclusionDate:</label> 
-                <InputDate id="inclusiondate" @bind-Value="Person.InclusionDate" class="form-control" /> 
-                <ValidationMessage For="() => Person.InclusionDate" class="text-danger" /> 
-            </div>        
-            <div class="mb-3">
-                <label for="changedate" class="form-label">ChangeDate:</label> 
-                <InputDate id="changedate" @bind-Value="Person.ChangeDate" class="form-control" /> 
-                <ValidationMessage For="() => Person.ChangeDate" class="text-danger" /> 
-            </div>        
+            @* <div class="mb-3"> *@
+            @*     <label for="inclusiondate" class="form-label">InclusionDate:</label>  *@
+            @*     <InputDate id="inclusiondate" @bind-Value="Person.InclusionDate" class="form-control" />  *@
+            @*     <ValidationMessage For="() => Person.InclusionDate" class="text-danger" />  *@
+            @* </div>         *@
+            @* <div class="mb-3"> *@
+            @*     <label for="changedate" class="form-label">ChangeDate:</label>  *@
+            @*     <InputDate id="changedate" @bind-Value="Person.ChangeDate" class="form-control" />  *@
+            @*     <ValidationMessage For="() => Person.ChangeDate" class="text-danger" />  *@
+            @* </div>         *@
             <button type="submit" class="btn btn-primary">Create</button>
         </EditForm>
     </div>

@@ -1,0 +1,62 @@
+﻿@page "/personaddresses/details"
+@using Microsoft.EntityFrameworkCore
+@using Fotovoltaico.Domain.Entities.Domain
+@inject IDbContextFactory<Fotovoltaico.Infra.Data.Context.ApplicationDbContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Details</PageTitle>
+
+<h1>Details</h1>
+
+<div>
+    <h2>PersonAddress</h2>
+    <hr />
+    @if (personaddress is null)
+    {
+        <p><em>Loading...</em></p>
+    }
+    else {
+        <dl class="row">
+            <dt class="col-sm-2">PersonId</dt>
+            <dd class="col-sm-10">@personaddress.PersonId</dd>
+            <dt class="col-sm-2">ZipCode</dt>
+            <dd class="col-sm-10">@personaddress.ZipCode</dd>
+            <dt class="col-sm-2">State</dt>
+            <dd class="col-sm-10">@personaddress.State</dd>
+            <dt class="col-sm-2">City</dt>
+            <dd class="col-sm-10">@personaddress.City</dd>
+            <dt class="col-sm-2">District</dt>
+            <dd class="col-sm-10">@personaddress.District</dd>
+            <dt class="col-sm-2">Number</dt>
+            <dd class="col-sm-10">@personaddress.Number</dd>
+            <dt class="col-sm-2">Address</dt>
+            <dd class="col-sm-10">@personaddress.Address</dd>
+            <dt class="col-sm-2">InclusionDate</dt>
+            <dd class="col-sm-10">@personaddress.InclusionDate</dd>
+            <dt class="col-sm-2">ChangeDate</dt>
+            <dd class="col-sm-10">@personaddress.ChangeDate</dd>
+        </dl>
+        <div>
+            <a href="@($"/personaddresses/edit?id={personaddress.Id}")">Edit</a> |
+            <a href="@($"/personaddresses")">Back to List</a>
+        </div>
+    }
+</div>
+
+@code {
+    private PersonAddress? personaddress;
+
+    [SupplyParameterFromQuery]
+    private Guid Id { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var context = DbFactory.CreateDbContext();
+        personaddress = await context.PersonAddresses.FirstOrDefaultAsync(m => m.Id == Id);
+
+        if (personaddress is null)
+        {
+            NavigationManager.NavigateTo("notfound");
+        }
+    }
+}

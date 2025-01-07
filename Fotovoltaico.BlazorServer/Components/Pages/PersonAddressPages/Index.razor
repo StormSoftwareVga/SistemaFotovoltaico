@@ -1,0 +1,44 @@
+﻿@page "/personaddresses"
+@using Microsoft.EntityFrameworkCore
+@using Microsoft.AspNetCore.Components.QuickGrid
+@using Fotovoltaico.Domain.Entities.Domain
+@using Fotovoltaico.Infra.Data.Context
+@implements IAsyncDisposable
+@inject IDbContextFactory<Fotovoltaico.Infra.Data.Context.ApplicationDbContext> DbFactory
+
+<PageTitle>Index</PageTitle>
+
+<h1>Index</h1>
+
+<p>
+    <a href="personaddresses/create">Create New</a>
+</p>
+
+<QuickGrid Class="table" Items="context.PersonAddresses">
+    <PropertyColumn Property="personaddress => personaddress.PersonId" />
+    <PropertyColumn Property="personaddress => personaddress.ZipCode" />
+    <PropertyColumn Property="personaddress => personaddress.State" />
+    <PropertyColumn Property="personaddress => personaddress.City" />
+    <PropertyColumn Property="personaddress => personaddress.District" />
+    <PropertyColumn Property="personaddress => personaddress.Number" />
+    <PropertyColumn Property="personaddress => personaddress.Address" />
+    @* <PropertyColumn Property="personaddress => personaddress.InclusionDate" /> *@
+    @* <PropertyColumn Property="personaddress => personaddress.ChangeDate" /> *@
+
+    <TemplateColumn Context="personaddress">
+        <a href="@($"personaddresses/edit?id={personaddress.Id}")">Edit</a> |
+        <a href="@($"personaddresses/details?id={personaddress.Id}")">Details</a> |
+        <a href="@($"personaddresses/delete?id={personaddress.Id}")">Delete</a>
+    </TemplateColumn>
+</QuickGrid>
+
+@code {
+    private ApplicationDbContext context = default!;
+
+    protected override void OnInitialized()
+    {
+        context = DbFactory.CreateDbContext();
+    }
+
+    public async ValueTask DisposeAsync() => await context.DisposeAsync();
+}
