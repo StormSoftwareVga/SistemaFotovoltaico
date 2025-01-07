@@ -3,24 +3,27 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35219.272
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Api", "Fotovoltaico\Fotovoltaico.Api.csproj", "{9E8D80CD-7B0A-4E3D-A369-4967531ACB0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Api", "Fotovoltaico\Fotovoltaico.Api.csproj", "{9E8D80CD-7B0A-4E3D-A369-4967531ACB0C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{63DCB2A9-123A-4592-8B91-8C41C2027DDD}"
 	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Domain", "Fotovoltaico.Domain\Fotovoltaico.Domain.csproj", "{27633CB2-CD57-411B-9F76-BBE76CE62775}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Domain", "Fotovoltaico.Domain\Fotovoltaico.Domain.csproj", "{27633CB2-CD57-411B-9F76-BBE76CE62775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Infra.CrossCutting", "Fotovoltaico.Infra.CrossCutting\Fotovoltaico.Infra.CrossCutting.csproj", "{3002E354-2FEF-4258-9FD9-F25AFC68FC6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Infra.CrossCutting", "Fotovoltaico.Infra.CrossCutting\Fotovoltaico.Infra.CrossCutting.csproj", "{3002E354-2FEF-4258-9FD9-F25AFC68FC6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Infra.CrossCutting.IoC", "Fotovoltaico.Infra.CrossCutting.IoC\Fotovoltaico.Infra.CrossCutting.IoC.csproj", "{5A7ADE7C-433A-47E1-AC79-FD4E1E936360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Infra.CrossCutting.IoC", "Fotovoltaico.Infra.CrossCutting.IoC\Fotovoltaico.Infra.CrossCutting.IoC.csproj", "{5A7ADE7C-433A-47E1-AC79-FD4E1E936360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Infra.Data", "Fotovoltaico.Infra.Data\Fotovoltaico.Infra.Data.csproj", "{DE72AB9A-7C82-484B-A9AB-246545AF7D60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Infra.Data", "Fotovoltaico.Infra.Data\Fotovoltaico.Infra.Data.csproj", "{DE72AB9A-7C82-484B-A9AB-246545AF7D60}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Job", "Fotovoltaico.Job\Fotovoltaico.Job.csproj", "{73EAFDE1-81A8-400E-BF42-BCAA08962E83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Job", "Fotovoltaico.Job\Fotovoltaico.Job.csproj", "{73EAFDE1-81A8-400E-BF42-BCAA08962E83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Tests", "Fotovoltaico.Tests\Fotovoltaico.Tests.csproj", "{909F6960-1014-47EA-A0DD-126D24184EB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Tests", "Fotovoltaico.Tests\Fotovoltaico.Tests.csproj", "{909F6960-1014-47EA-A0DD-126D24184EB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.BlazorServer", "Fotovoltaico.BlazorServer\Fotovoltaico.BlazorServer.csproj", "{EF7B3353-0EF8-428D-90D9-9AADD27F1416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +59,10 @@ Global
 		{909F6960-1014-47EA-A0DD-126D24184EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{909F6960-1014-47EA-A0DD-126D24184EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{909F6960-1014-47EA-A0DD-126D24184EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

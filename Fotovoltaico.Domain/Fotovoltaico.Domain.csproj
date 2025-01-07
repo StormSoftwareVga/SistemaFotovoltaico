@@ -7,16 +7,32 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interface\IRepositories\" />
-    <Folder Include="Interface\IService\" />
-    <Folder Include="Interface\IUnitOfWork\" />
-    <Folder Include="Interface\Validation\" />
-    <Folder Include="Interface\IExternalIntegrations\" />
-    <Folder Include="Interface\IConstants\" />
-    <Folder Include="Mappers\" />
-    <Folder Include="Services\" />
-    <Folder Include="Validation\" />
-    <Folder Include="Entities\" />
+    <Compile Remove="Interfaces\IConstants\**" />
+    <Compile Remove="Interfaces\IExternalIntegrations\**" />
+    <Compile Remove="Interfaces\IRepositories\**" />
+    <Compile Remove="Interfaces\IService\**" />
+    <Compile Remove="Interfaces\IUnitOfWork\**" />
+    <Compile Remove="Interfaces\Validation\**" />
+    <Compile Remove="Validation\**" />
+    <EmbeddedResource Remove="Interfaces\IConstants\**" />
+    <EmbeddedResource Remove="Interfaces\IExternalIntegrations\**" />
+    <EmbeddedResource Remove="Interfaces\IRepositories\**" />
+    <EmbeddedResource Remove="Interfaces\IService\**" />
+    <EmbeddedResource Remove="Interfaces\IUnitOfWork\**" />
+    <EmbeddedResource Remove="Interfaces\Validation\**" />
+    <EmbeddedResource Remove="Validation\**" />
+    <None Remove="Interfaces\IConstants\**" />
+    <None Remove="Interfaces\IExternalIntegrations\**" />
+    <None Remove="Interfaces\IRepositories\**" />
+    <None Remove="Interfaces\IService\**" />
+    <None Remove="Interfaces\IUnitOfWork\**" />
+    <None Remove="Interfaces\Validation\**" />
+    <None Remove="Validation\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
   </ItemGroup>
 
 </Project>

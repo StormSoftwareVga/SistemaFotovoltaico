@@ -7,8 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Responses\" />
+    <Compile Remove="Responses\**" />
+    <Content Remove="Responses\**" />
+    <EmbeddedResource Remove="Responses\**" />
+    <None Remove="Responses\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AspNetCore.Scalar" Version="1.1.7" />
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Fotovoltaico.Domain\Fotovoltaico.Domain.csproj" />
+    <ProjectReference Include="..\Fotovoltaico.Infra.CrossCutting.IoC\Fotovoltaico.Infra.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Fotovoltaico.Infra.Data\Fotovoltaico.Infra.Data.csproj" />
   </ItemGroup>
 
 </Project>

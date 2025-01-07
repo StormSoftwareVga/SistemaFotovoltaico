@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mysql:latest
+    container_name: mysqldb
+    environment:
+      MYSQL_ROOT_PASSWORD: 303304
+      MYSQL_DATABASE: fotovoltaico
+    ports:
+      - "3307:3306"
+ 
+  api:
+    build:
+      context: .
+      dockerfile: Fotovoltaico/Dockerfile
+    ports:
+      - "5000:8080"
+    depends_on:
+      - db
+ 
+  blazorserver:
+    build:
+      context: .
+      dockerfile: Fotovoltaico.BlazorServer/Dockerfile
+    ports:
+      - "5002:5000"
+    environment:
+        ASPNETCORE_URLS: "http://+:5000"
+        ASPNETCORE_ENVIRONMENT: Development 
+    depends_on:
+      - api

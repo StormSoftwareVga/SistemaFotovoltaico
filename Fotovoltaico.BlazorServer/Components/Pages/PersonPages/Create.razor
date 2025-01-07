@@ -1,0 +1,79 @@
+﻿@page "/people/create"
+@using Microsoft.EntityFrameworkCore
+@using Fotovoltaico.Domain.Entities.Domain
+@inject IDbContextFactory<Fotovoltaico.Infra.Data.Context.ApplicationDbContext> DbFactory
+@inject NavigationManager NavigationManager
+
+<PageTitle>Create</PageTitle>
+
+<h1>Create</h1>
+
+<h2>Person</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Person" OnValidSubmit="AddPerson" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name:</label> 
+                <InputText id="name" @bind-Value="Person.Name" class="form-control" /> 
+                <ValidationMessage For="() => Person.Name" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="document" class="form-label">Document:</label> 
+                <InputText id="document" @bind-Value="Person.Document" class="form-control" /> 
+                <ValidationMessage For="() => Person.Document" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="documenttype" class="form-label">DocumentType:</label> 
+                <InputNumber id="documenttype" @bind-Value="Person.DocumentType" class="form-control" /> 
+                <ValidationMessage For="() => Person.DocumentType" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="email" class="form-label">Email:</label> 
+                <InputText id="email" @bind-Value="Person.Email" class="form-control" /> 
+                <ValidationMessage For="() => Person.Email" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="companyname" class="form-label">CompanyName:</label> 
+                <InputText id="companyname" @bind-Value="Person.CompanyName" class="form-control" /> 
+                <ValidationMessage For="() => Person.CompanyName" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone:</label> 
+                <InputText id="phone" @bind-Value="Person.Phone" class="form-control" /> 
+                <ValidationMessage For="() => Person.Phone" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="inclusiondate" class="form-label">InclusionDate:</label> 
+                <InputDate id="inclusiondate" @bind-Value="Person.InclusionDate" class="form-control" /> 
+                <ValidationMessage For="() => Person.InclusionDate" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="changedate" class="form-label">ChangeDate:</label> 
+                <InputDate id="changedate" @bind-Value="Person.ChangeDate" class="form-control" /> 
+                <ValidationMessage For="() => Person.ChangeDate" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Create</button>
+        </EditForm>
+    </div>
+</div>
+
+<div>
+    <a href="/people">Back to List</a>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Person Person { get; set; } = new();
+
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddPerson()
+    {
+        using var context = DbFactory.CreateDbContext();
+        context.People.Add(Person);
+        await context.SaveChangesAsync();
+        NavigationManager.NavigateTo("/people");
+    }
+}

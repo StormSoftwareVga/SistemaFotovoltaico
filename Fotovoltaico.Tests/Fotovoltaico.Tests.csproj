@@ -10,6 +10,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Config\**" />
+    <Compile Remove="ExternalIntegrations\**" />
+    <Compile Remove="Includes\**" />
+    <Compile Remove="Integrados\**" />
+    <Compile Remove="Unitarios\**" />
+    <EmbeddedResource Remove="Config\**" />
+    <EmbeddedResource Remove="ExternalIntegrations\**" />
+    <EmbeddedResource Remove="Includes\**" />
+    <EmbeddedResource Remove="Integrados\**" />
+    <EmbeddedResource Remove="Unitarios\**" />
+    <None Remove="Config\**" />
+    <None Remove="ExternalIntegrations\**" />
+    <None Remove="Includes\**" />
+    <None Remove="Integrados\**" />
+    <None Remove="Unitarios\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="coverlet.collector" Version="6.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.8.0" />
     <PackageReference Include="NUnit" Version="3.14.0" />
@@ -19,14 +37,6 @@
 
   <ItemGroup>
     <Using Include="NUnit.Framework" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Includes\" />
-    <Folder Include="Integrados\" />
-    <Folder Include="Unitarios\" />
-    <Folder Include="ExternalIntegrations\" />
-    <Folder Include="Config\" />
   </ItemGroup>
 
 </Project>

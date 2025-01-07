@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Fotovoltaico.Domain\Fotovoltaico.Domain.csproj" />
+    <ProjectReference Include="..\Fotovoltaico.Infra.Data\Fotovoltaico.Infra.Data.csproj" />
+  </ItemGroup>
+
 </Project>
