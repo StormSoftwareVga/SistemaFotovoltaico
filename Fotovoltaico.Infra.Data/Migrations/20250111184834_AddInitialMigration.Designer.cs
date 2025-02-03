@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fotovoltaico.Infra.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250107164354_AddInitialMigration")]
+    [Migration("20250111184834_AddInitialMigration")]
     partial class AddInitialMigration
     {
         /// <inheritdoc />

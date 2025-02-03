@@ -25,6 +25,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fotovoltaico.Tests", "Fotov
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.BlazorServer", "Fotovoltaico.BlazorServer\Fotovoltaico.BlazorServer.csproj", "{EF7B3353-0EF8-428D-90D9-9AADD27F1416}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fotovoltaico.Maui", "Fotovoltaico.Maui\Fotovoltaico.Maui.csproj", "{4DD8DDF4-A124-47FD-895D-8C2EE5849975}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,12 @@ Global
 		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF7B3353-0EF8-428D-90D9-9AADD27F1416}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD8DDF4-A124-47FD-895D-8C2EE5849975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DD8DDF4-A124-47FD-895D-8C2EE5849975}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DD8DDF4-A124-47FD-895D-8C2EE5849975}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{4DD8DDF4-A124-47FD-895D-8C2EE5849975}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DD8DDF4-A124-47FD-895D-8C2EE5849975}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DD8DDF4-A124-47FD-895D-8C2EE5849975}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
